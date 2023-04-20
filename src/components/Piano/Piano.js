@@ -3,7 +3,7 @@ import './Piano.css';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
-
+import SelectedScaleDropdown from "../SelectedScaleDropdown";
 function Piano() {
   //const notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
   const chromatic = [
@@ -64,25 +64,25 @@ function Piano() {
   const [selectedSound, setSelectedSound] = useState('default');
 
   const handleScaleChange = (event) => {
-    if (event.target.value === "chromatic") {
+    if (event.target.value === "Chromatic") {
       setSelectedScale(chromatic);
-      setSelectedScaleName('chromatic');
+      setSelectedScaleName('Chromatic');
     }
-    else if (event.target.value === "major") {
+    else if (event.target.value === "Major") {
       setSelectedScale(major);
-      setSelectedScaleName('major');
+      setSelectedScaleName('Major');
     }
-    else if (event.target.value === "minor") {
+    else if (event.target.value === "Minor") {
       setSelectedScale(minor);
-      setSelectedScaleName('minor');
+      setSelectedScaleName('Minor');
     }
-    else if (event.target.value === "pentatonic") {
+    else if (event.target.value === "Pentatonic") {
       setSelectedScale(pentatonic);
-      setSelectedScaleName('pentatonic');
+      setSelectedScaleName('Pentatonic');
     }
     else {
       setSelectedScale(blues);
-      setSelectedScaleName('blues');
+      setSelectedScaleName('Blues');
     }
   };
   const handleSoundChange = (event) => {
@@ -91,14 +91,7 @@ function Piano() {
 
   return (<div>
     <h2>Piano</h2>
-    <label for="scale"> Scale: <FontAwesomeIcon icon={faMusic} /> </label>
-    <select id="scale" value={selectedScaleName} onChange={handleScaleChange}>
-      <option value="chromatic">Chromatic</option>
-      <option value="minor">Minor</option>
-      <option value="pentatonic">Pentatonic</option>
-      <option value="blues">Blues</option>
-      <option value="major">Major</option>
-    </select>
+    <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName}/>
     <label for="scale"> Sound: <span class="material-symbols-outlined">piano</span> </label>
     <select id="scale" value={selectedSound} onChange={handleSoundChange}>
       {sounds.map((tone, key) => <option key={key} value={tone}>{tone}</option>)}
