@@ -1,6 +1,8 @@
 import Key from "../Key/Key";
 import './Piano.css';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 function Piano() {
   //const notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
@@ -81,8 +83,10 @@ function Piano() {
       setSelectedScaleName('blues');
     }
   };
+
   return (<div>
-    <label for="scale">Select a scale:</label>
+    <h2>Piano</h2>
+    <label for="scale"> Scale: <FontAwesomeIcon icon={faMusic} /> </label>
     <select id="scale" value={selectedScaleName} onChange={handleScaleChange}>
       <option value="chromatic">Chromatic</option>
       <option value="minor">Minor</option>

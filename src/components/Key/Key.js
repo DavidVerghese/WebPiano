@@ -3,6 +3,7 @@ import './Key.css';
 
 const useTonePlayer = (note) => {
   const playSound = () => {
+    // Sine, DuoSynth
     const newPlayer = new Tone.Synth().toDestination();
     newPlayer.triggerAttackRelease(note, "8n");
   };
