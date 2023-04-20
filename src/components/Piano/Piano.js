@@ -60,6 +60,8 @@ function Piano() {
   ];
   const [selectedScale, setSelectedScale] = useState(chromatic);
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
+  const sounds = ['default','am','duo','fm','membrane','metal','mono']
+  const [selectedSound, setSelectedSound] = useState('default');
 
   const handleScaleChange = (event) => {
     if (event.target.value === "chromatic") {
@@ -83,6 +85,9 @@ function Piano() {
       setSelectedScaleName('blues');
     }
   };
+  const handleSoundChange = (event) => {
+    setSelectedSound(event.target.value)
+  }
 
   return (<div>
     <h2>Piano</h2>
@@ -94,8 +99,12 @@ function Piano() {
       <option value="blues">Blues</option>
       <option value="major">Major</option>
     </select>
+    <label for="scale"> Sound: <span class="material-symbols-outlined">piano</span> </label>
+    <select id="scale" value={selectedSound} onChange={handleSoundChange}>
+      {sounds.map((tone, key) => <option key={key} value={tone}>{tone}</option>)}
+    </select>
     <div className="piano">
-      {selectedScale.map((note, key) => <Key key={key} note={note.note} color={note.color} />)}
+      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} note={note.note} color={note.color} />)}
     </div>
   </div>)
 }
