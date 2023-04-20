@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Web Piano 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+deployed site: https://playable-piano.surge.sh/
 
 ## Installation 
 
+```
+Fork and clone down this repo 
+npm install 
+npm start 
+```
