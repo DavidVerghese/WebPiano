@@ -5,6 +5,11 @@
   height: 100px;
   margin: 0px;
 }
+.gray {
+  height: 100px;
+  margin: 0px;
+  background-color: lightgray;
+}
 
 .black {
   height: 70px;
