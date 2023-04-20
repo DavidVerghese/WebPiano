@@ -1,0 +1,14 @@
+.key {
+  margin: 5px;
+}
+.white {
+  height: 100px;
+  margin: 0px;
+}
+
+.black {
+  height: 70px;
+  background-color: black;
+  margin: 0px;
+  color: white;
+}
