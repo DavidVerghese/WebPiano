@@ -3,7 +3,7 @@ import './Piano.css';
 import { useState } from 'react';
 import SelectedScaleDropdown from "../SelectedScaleDropdown/SelectedScaleDropdown";
 import SelectedSoundDropdown from "../SelectedSoundDropdown/SelectedSoundDropdown";
-import { chromatic, major, minor, pentatonic, blues } from "../Scales/Scales";
+import { chromatic, major, minor, minorPentatonic, minorBlues, majorPentatonic, mixolodian, harmonicMinor, dorian, majorBlues, klezmer, japanese, southEastAsian } from "../Scales/Scales";
 function Piano() {
   const [selectedScale, setSelectedScale] = useState(chromatic);
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
@@ -18,17 +18,49 @@ function Piano() {
       setSelectedScale(major);
       setSelectedScaleName('Major');
     }
+    else if (event.target.value === "Japanese") {
+      setSelectedScale(japanese);
+      setSelectedScaleName('Japanese');
+    }
+    else if (event.target.value === "Major Pentatonic") {
+      setSelectedScale(majorPentatonic);
+      setSelectedScaleName('Major Pentatonic');
+    }
+    else if (event.target.value === "South East Asian") {
+      setSelectedScale(southEastAsian);
+      setSelectedScaleName('South East Asian');
+    }
+    else if (event.target.value === "Klezmer") {
+      setSelectedScale(klezmer);
+      setSelectedScaleName('Klezmer');
+    }
+    else if (event.target.value === "Major Blues") {
+      setSelectedScale(majorBlues);
+      setSelectedScaleName('Major Blues');
+    }
+    else if (event.target.value === "Harmonic Minor") {
+      setSelectedScale(harmonicMinor);
+      setSelectedScaleName('Harmonic Minor');
+    }
+    else if (event.target.value === "Dorian") {
+      setSelectedScale(dorian);
+      setSelectedScaleName('Dorian');
+    }
+    else if (event.target.value === "Mixolodian") {
+      setSelectedScale(mixolodian);
+      setSelectedScaleName('Mixolodian');
+    }
     else if (event.target.value === "Minor") {
       setSelectedScale(minor);
       setSelectedScaleName('Minor');
     }
-    else if (event.target.value === "Pentatonic") {
-      setSelectedScale(pentatonic);
-      setSelectedScaleName('Pentatonic');
+    else if (event.target.value === "Minor Pentatonic") {
+      setSelectedScale(minorPentatonic);
+      setSelectedScaleName('Minor Pentatonic');
     }
     else {
-      setSelectedScale(blues);
-      setSelectedScaleName('Blues');
+      setSelectedScale(minorBlues);
+      setSelectedScaleName('Minor Blues');
     }
   };
   const handleSoundChange = (event) => {

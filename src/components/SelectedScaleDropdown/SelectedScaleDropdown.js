@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 function SelectedScaleDropdown({ handleScaleChange, selectedScaleName}) {
-  const scales = ["Chromatic", "Minor", "Pentatonic", "Blues", "Major"];
+  const scales = ["Chromatic", "Minor", "Minor Pentatonic", "Minor Blues", "Major", "Major Pentatonic", "Mixolodian", "Harmonic Minor", "Dorian", "Major Blues", "Klezmer", "Japanese","South East Asian"];
   return <>
     <label for="scale"> Scale: <FontAwesomeIcon icon={faMusic} /> </label>
     <select id="scale" value={selectedScaleName} onChange={handleScaleChange}>
