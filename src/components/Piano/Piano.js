@@ -59,7 +59,6 @@ function Piano() {
   ];
   const [selectedScale, setSelectedScale] = useState(chromatic);
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
-  const sounds = ['default','am','duo','fm','membrane','metal','mono']
   const [selectedSound, setSelectedSound] = useState('default');
 
   const handleScaleChange = (event) => {
