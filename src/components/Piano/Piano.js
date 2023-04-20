@@ -1,7 +1,7 @@
 import Key from "../Key/Key";
 import './Piano.css';
 import { useState } from 'react';
-import SelectedScaleDropdown from "../SelectedScaleDropdown";
+import SelectedScaleDropdown from "../SelectedScaleDropdown/SelectedScaleDropdown";
 
 function Piano() {
   const chromatic = [
