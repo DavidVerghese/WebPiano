@@ -4,7 +4,6 @@ import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 function SelectedScaleDropdown({ handleScaleChange, selectedScaleName}) {
   const scales = ["Chromatic", "Minor", "Pentatonic", "Blues", "Major"];
-  //const [selectedScaleName, setSelectedScaleName] = useState('Chromatic');
   return <>
     <label for="scale"> Scale: <FontAwesomeIcon icon={faMusic} /> </label>
     <select id="scale" value={selectedScaleName} onChange={handleScaleChange}>
