@@ -1,6 +1,6 @@
 # Web Piano 
 
-deployed site: https://playable-piano.surge.sh/
+deployed site: https://webpiano.surge.sh/
 
 ## Installation 
 
