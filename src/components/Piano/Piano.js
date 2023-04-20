@@ -2,6 +2,7 @@ import Key from "../Key/Key";
 import './Piano.css';
 import { useState } from 'react';
 import SelectedScaleDropdown from "../SelectedScaleDropdown/SelectedScaleDropdown";
+import SelectedSoundDropdown from "../SelectedSoundDropdown/SelectedSoundDropdown";
 
 function Piano() {
   const chromatic = [
@@ -89,11 +90,8 @@ function Piano() {
 
   return (<div>
     <h2>Piano</h2>
-    <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName}/>
-    <label for="scale"> Sound: <span class="material-symbols-outlined">piano</span> </label>
-    <select id="scale" value={selectedSound} onChange={handleSoundChange}>
-      {sounds.map((tone, key) => <option key={key} value={tone}>{tone}</option>)}
-    </select>
+    <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
+    <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
     <div className="piano">
       {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} note={note.note} color={note.color} />)}
     </div>
