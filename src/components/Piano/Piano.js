@@ -55,13 +55,15 @@ function Piano() {
     setSelectedSound(event.target.value)
   }
 
-  return (<div>
+  return (
+  <div className="piano-parent">
     <h2>Piano</h2>
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
     <div className="piano">
       {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} note={note.note} color={note.color} />)}
     </div>
-  </div>)
+  </div>
+  )
 }
 export default Piano;
