@@ -1,3 +1,6 @@
 .piano {
   display: flex;
 }
+.piano-parent {
+  text-align: start;
+}
