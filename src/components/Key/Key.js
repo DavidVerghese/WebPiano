@@ -35,7 +35,7 @@ const useTonePlayer = (note, sound) => {
   return { playSound };
 };
 
-function Key({note, color, sound}) {
+function Key({note, color, sound, width}) {
   const { playSound } = useTonePlayer(note, sound);
   return (
     <div className="key">

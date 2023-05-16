@@ -1,14 +1,15 @@
 import Key from "../Key/Key";
 import './Piano.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SelectedScaleDropdown from "../SelectedScaleDropdown/SelectedScaleDropdown";
 import SelectedSoundDropdown from "../SelectedSoundDropdown/SelectedSoundDropdown";
 import { chromatic, major, minor, minorPentatonic, minorBlues, majorPentatonic, mixolodian, harmonicMinor, dorian, majorBlues, klezmer, japanese, southEastAsian } from "../Scales/Scales";
-function Piano() {
+function Piano({width,height,hideTitle}) {
   const [selectedScale, setSelectedScale] = useState(chromatic);
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
   const [selectedSound, setSelectedSound] = useState('default');
-
+  const [defaultWidth, setDefaultWidth] = useState('600px');
+  const [defaultHeight,setDefaultHeight] = useState('100px')
   const handleScaleChange = (event) => {
     setSelectedScaleName(event.target.value)
     if (event.target.value === "Chromatic") {
@@ -55,13 +56,24 @@ function Piano() {
     setSelectedSound(event.target.value)
   }
 
+  useEffect(() => {
+    if (width < 400) {
+      console.warn('Warning: The width prop should be at least 400.');
+    }
+  }, [width]);
+  useEffect(() => {
+    if (height < 30) {
+      console.warn('Warning: The height prop should be at least 30.');
+    }
+  }, [height]);
+
   return (
   <div className="piano-parent">
-    <h2>Piano</h2>
+      {!hideTitle && <h2>Piano</h2>}
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
-    <div className="piano">
-      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} note={note.note} color={note.color} />)}
+    <div className="piano" style={{width: width && width > 400 ? `${width}px` : defaultWidth,height: height && height > 30 ? `${height}px` : defaultHeight }}>
+        {selectedScale.map((note, key) => <Key width={width} sound={selectedSound} key={key} note={note.note} color={note.color} />)}
     </div>
   </div>
   )
