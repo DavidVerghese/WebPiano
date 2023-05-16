@@ -1,9 +1,9 @@
 import Piano from "../Piano/Piano";
 import Warning from "../Warning/Warning";
 
-function Interface() {
+function Interface({width,height}) {
   return (<div className="interface">
-    <Piano />
+    <Piano width={width} height={height} />
     <Warning/>
   </div>)
 }

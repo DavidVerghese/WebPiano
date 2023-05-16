@@ -4,7 +4,7 @@ import { useState } from 'react';
 import SelectedScaleDropdown from "../SelectedScaleDropdown/SelectedScaleDropdown";
 import SelectedSoundDropdown from "../SelectedSoundDropdown/SelectedSoundDropdown";
 import { chromatic, major, minor, minorPentatonic, minorBlues, majorPentatonic, mixolodian, harmonicMinor, dorian, majorBlues, klezmer, japanese, southEastAsian } from "../Scales/Scales";
-function Piano() {
+function Piano({width,height}) {
   const [selectedScale, setSelectedScale] = useState(chromatic);
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
   const [selectedSound, setSelectedSound] = useState('default');
@@ -60,8 +60,8 @@ function Piano() {
     <h2>Piano</h2>
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
-    <div className="piano">
-      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} note={note.note} color={note.color} />)}
+    <div className="piano" style={{width:`${width}px`,height:`${height}px`}}>
+        {selectedScale.map((note, key) => <Key width={width} sound={selectedSound} key={key} note={note.note} color={note.color} />)}
     </div>
   </div>
   )
