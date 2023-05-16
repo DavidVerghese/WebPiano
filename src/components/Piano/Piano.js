@@ -61,7 +61,7 @@ function Piano({width,height,hideTitle}) {
       {!hideTitle && <h2>Piano</h2>}
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
-    <div className="piano" style={{width: width ? `${width}px` : defaultWidth,height: height ? `${height}px` : defaultHeight }}>
+    <div className="piano" style={{width: width && width > 400 ? `${width}px` : defaultWidth,height: height && height > 30 ? `${height}px` : defaultHeight }}>
         {selectedScale.map((note, key) => <Key width={width} sound={selectedSound} key={key} note={note.note} color={note.color} />)}
     </div>
   </div>
