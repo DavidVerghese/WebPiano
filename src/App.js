@@ -6,7 +6,7 @@ import Interface
 function App() {
   return (
     <div>
-      <Interface width={600} height={100} />
+      <Interface />
     </div>
   );
 }

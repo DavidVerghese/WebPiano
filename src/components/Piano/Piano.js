@@ -8,7 +8,8 @@ function Piano({width,height,hideTitle}) {
   const [selectedScale, setSelectedScale] = useState(chromatic);
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
   const [selectedSound, setSelectedSound] = useState('default');
-
+  const [defaultWidth, setDefaultWidth] = useState('600px');
+  const [defaultHeight,setDefaultHeight] = useState('100px')
   const handleScaleChange = (event) => {
     setSelectedScaleName(event.target.value)
     if (event.target.value === "Chromatic") {
@@ -60,7 +61,7 @@ function Piano({width,height,hideTitle}) {
       {!hideTitle && <h2>Piano</h2>}
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
-    <div className="piano" style={{width:`${width}px`,height:`${height}px`}}>
+    <div className="piano" style={{width: width ? `${width}px` : defaultWidth,height: height ? `${height}px` : defaultHeight }}>
         {selectedScale.map((note, key) => <Key width={width} sound={selectedSound} key={key} note={note.note} color={note.color} />)}
     </div>
   </div>
