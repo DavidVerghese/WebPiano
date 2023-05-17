@@ -1,18 +1,27 @@
 .key {
-  margin: 5px;
+  margin: 2px;
+  /* border: 1px solid red; */
+  width: 100%;
+}
+.white, .gray, .black {
+  width: 80%;
+  padding: 0.5px;
 }
 .white {
-  height: 100px;
+  /* height: 100px; */
   margin: 0px;
+  height: 100%;
 }
 .gray {
-  height: 100px;
+  /* height: 100px; */
   margin: 0px;
   background-color: lightgray;
+  height: 100%;
 }
 
 .black {
-  height: 70px;
+  /* height: 70px; */
+  height: 70%;
   background-color: black;
   margin: 0px;
   color: white;
