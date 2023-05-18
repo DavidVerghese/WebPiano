@@ -22,7 +22,7 @@ function Piano({width,height,hideTitle}) {
       window.addEventListener('keyup', handleKeyUp)
     })   
   
-console.log(selectedScaleName)
+console.log(selectedScaleName,selectedScale)
     function handleKeyDown(event) {
       if (event.repeat) {
         return
