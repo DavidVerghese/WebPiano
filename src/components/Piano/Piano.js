@@ -10,6 +10,9 @@ function Piano({width,height,hideTitle}) {
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
   const [selectedSound, setSelectedSound] = useState('default');
   const [selectedNotes, setSelectedNotes] = useState([]);
+  const [defaultHeight, setDefaultHeight] = useState('100px');
+  const [defaultWidth, setDefaultWidth] = useState('600px');
+
   let player = useRef(null);
   useEffect(() => {
     player.current = new Tone.Synth().toDestination();
@@ -220,8 +223,8 @@ function Piano({width,height,hideTitle}) {
     }
   }, [width]);
   useEffect(() => {
-    if (height < 30) {
-      console.warn('Warning: The height prop should be at least 30.');
+    if (height < 40) {
+      console.warn('Warning: The height prop should be at least 40.');
     }
   }, [height]);
 
@@ -230,7 +233,7 @@ function Piano({width,height,hideTitle}) {
       {!hideTitle && <h2>Piano</h2>}
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
-    <div className="piano">
+    <div className="piano" style={{width: width && width >= 400 ? `${width}px` : defaultWidth,height: height && height >= 40 ? `${height}px` : defaultHeight }}>
       {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} keystroke={note.keystroke} note={note.note} color={note.color} />)}
     </div>
   </div>
