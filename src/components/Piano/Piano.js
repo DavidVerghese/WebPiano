@@ -22,54 +22,84 @@ function Piano({width,height,hideTitle}) {
       window.addEventListener('keyup', handleKeyUp)
     })   
   
-  
-  
+console.log(selectedScaleName)
     function handleKeyDown(event) {
       if (event.repeat) {
         return
       }
-      if(selectedNotes.includes(event.key)) {
-        switch (event.key) {
-          case "a":
-            player.current.triggerAttack("C4", "+0.02");
-            break;
-          case "w":
-            player.current.triggerAttack("C#4", "+0.03");
-            break;
-          case "s":
-            player.current.triggerAttack("D4", "+0.04");
-            break;  
-          case "e":
-            player.current.triggerAttack("D#4", "+0.05");
-            break;
-          case "d":
-            player.current.triggerAttack("E4", "+0.06");
-            break;
-          case "f":
-            player.current.triggerAttack("F4", "+0.07");
-            break;
-          case "t":
-            player.current.triggerAttack("F#4", "+0.08");
-            break;
-          case "g":
-            player.current.triggerAttack("G4", "+0.09");
-            break;
-          case "y":
-            player.current.triggerAttack("G#4", "+0.10");
-            break;
-          case "h":
-            player.current.triggerAttack("A4", "+0.11");
-            break;
-          case "u":
-            player.current.triggerAttack("A#4", "+0.12");
-            break;
-          case "j":
-            player.current.triggerAttack("B4", "+0.13");
-            break;
-          case "k":
-            player.current.triggerAttack("C5", "+0.14");
-            break;
+      if (selectedNotes.includes(event.key)) {
+        if (selectedScaleName === 'chromatic') {
+          switch (event.key) {
+            case "a":
+              player.current.triggerAttack(selectedScale[0].note, "+0.02");
+              break;
+            case "w":
+              player.current.triggerAttack(selectedScale[1].note, "+0.03");
+              break;
+            case "s":
+              player.current.triggerAttack(selectedScale[2].note, "+0.04");
+              break;  
+            case "e":
+              player.current.triggerAttack(selectedScale[3].note, "+0.05");
+              break;
+            case "d":
+              player.current.triggerAttack(selectedScale[4].note, "+0.06");
+              break;
+            case "f":
+              player.current.triggerAttack(selectedScale[5].note, "+0.07");
+              break;
+            case "t":
+              player.current.triggerAttack(selectedScale[6].note, "+0.08");
+              break;
+            case "g":
+              player.current.triggerAttack(selectedScale[7].note, "+0.09");
+              break;
+            case "y":
+              player.current.triggerAttack(selectedScale[8].note, "+0.10");
+              break;
+            case "h":
+              player.current.triggerAttack(selectedScale[9].note, "+0.11");
+              break;
+            case "u":
+              player.current.triggerAttack(selectedScale[10].note, "+0.12");
+              break;
+            case "j":
+              player.current.triggerAttack(selectedScale[11].note, "+0.13");
+              break;
+            case "k":
+              player.current.triggerAttack(selectedScale[12].note, "+0.14");
+              break;
+          }
         }
+        else {
+          switch (event.key) {
+            case "a":
+              player.current.triggerAttack(selectedScale[0].note, "+0.02");
+              break;
+            case "s":
+              player.current.triggerAttack(selectedScale[1].note, "+0.04");
+              break;  
+            case "d":
+              player.current.triggerAttack(selectedScale[2].note, "+0.06");
+              break;
+            case "f":
+              player.current.triggerAttack(selectedScale[3].note, "+0.07");
+              break;
+            case "t":
+              player.current.triggerAttack(selectedScale[4].note, "+0.08");
+              break;
+            case "g":
+              player.current.triggerAttack(selectedScale[5].note, "+0.09");
+              break;
+            case "h":
+              player.current.triggerAttack(selectedScale[6].note, "+0.11");
+              break;
+            case "j":
+              player.current.triggerAttack(selectedScale[7].note, "+0.13");
+              break;
+          }
+        }
+        
       }
     }
   
