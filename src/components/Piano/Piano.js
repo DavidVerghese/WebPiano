@@ -231,7 +231,7 @@ function Piano({width,height,hideTitle}) {
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
     <div className="piano">
-      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} note={note.note} color={note.color} />)}
+      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} keystroke={note.keystroke} note={note.note} color={note.color} />)}
     </div>
   </div>
   )
