@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from 'react';
 import SelectedScaleDropdown from "../SelectedScaleDropdown/SelectedScaleDropdown";
 import SelectedSoundDropdown from "../SelectedSoundDropdown/SelectedSoundDropdown";
 import { chromatic, major, minor, minorPentatonic, minorBlues, majorPentatonic, mixolodian, harmonicMinor, dorian, majorBlues, klezmer, japanese, southEastAsian } from "../Scales/Scales";
+import NotePlayer from '../NotePlayer/NotePlayer';
+
 function Piano({width,height}) {
   const [selectedScale, setSelectedScale] = useState(chromatic);
   const [selectedScaleName, setSelectedScaleName] = useState('chromatic');
@@ -18,108 +20,6 @@ function Piano({width,height}) {
     player.current = new Tone.Synth().toDestination();
     chromatic.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
   }, [])
-    
-  
-    useEffect(() => {
-      window.addEventListener('keydown', handleKeyDown)
-      window.addEventListener('keyup', handleKeyUp)
-    })   
-  
-  
-  
-    function handleKeyDown(event) {
-      if (event.repeat) {
-        return
-      }
-      if(selectedNotes.includes(event.key)) {
-        switch (event.key) {
-          case "a":
-            player.current.triggerAttack("C4", "+0.02");
-            break;
-          case "w":
-            player.current.triggerAttack("C#4", "+0.03");
-            break;
-          case "s":
-            player.current.triggerAttack("D4", "+0.04");
-            break;  
-          case "e":
-            player.current.triggerAttack("D#4", "+0.05");
-            break;
-          case "d":
-            player.current.triggerAttack("E4", "+0.06");
-            break;
-          case "f":
-            player.current.triggerAttack("F4", "+0.07");
-            break;
-          case "t":
-            player.current.triggerAttack("F#4", "+0.08");
-            break;
-          case "g":
-            player.current.triggerAttack("G4", "+0.09");
-            break;
-          case "y":
-            player.current.triggerAttack("G#4", "+0.10");
-            break;
-          case "h":
-            player.current.triggerAttack("A4", "+0.11");
-            break;
-          case "u":
-            player.current.triggerAttack("A#4", "+0.12");
-            break;
-          case "j":
-            player.current.triggerAttack("B4", "+0.13");
-            break;
-          case "k":
-            player.current.triggerAttack("C5", "+0.14");
-            break;
-        }
-      }
-    }
-  
-    function handleKeyUp(event) {
-      switch (event.key) {
-        case "a":
-          player.current.triggerRelease();
-          break;
-        case "w":
-          player.current.triggerRelease();
-          break;
-        case "s":
-          player.current.triggerRelease();
-          break;  
-        case "e":
-          player.current.triggerRelease();
-          break;
-        case "d":
-          player.current.triggerRelease();
-          break;
-        case "f":
-          player.current.triggerRelease();
-          break;
-        case "t":
-          player.current.triggerRelease();
-          break;
-        case "g":
-          player.current.triggerRelease();
-          break;
-        case "y":
-          player.current.triggerRelease();
-          break;
-        case "h":
-          player.current.triggerRelease();
-          break;
-        case "u":
-          player.current.triggerRelease();
-          break;
-        case "j":
-          player.current.triggerRelease();
-          break;
-        case "k":
-          player.current.triggerRelease();
-          break;
-      }
-  
-    }
   
   
     function handleSelectedNoteChange(scale) {
@@ -127,7 +27,7 @@ function Piano({width,height}) {
       scale.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
     }
     
-    const handleSoundChange = (event) => {
+  const handleSoundChange = (event) => {
       setSelectedSound(event.target.value)
       let sound = event.target.value
       if (sound === "default") {
@@ -210,10 +110,10 @@ function Piano({width,height}) {
     }
   };
 
-  function handleSelectedNoteChange(scale) {
-    setSelectedNotes([])
-    scale.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
-  }
+  // function handleSelectedNoteChange(scale) {
+  //   setSelectedNotes([])
+  //   scale.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
+  // }
   
  
 
@@ -234,7 +134,8 @@ function Piano({width,height}) {
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
     <div className="piano" style={{width: width && width >= 400 ? `${width}px` : defaultWidth,height: height && height >= 40 ? `${height}px` : defaultHeight }}>
       {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} keystroke={note.keystroke} note={note.note} color={note.color} />)}
-    </div>
+      </div>
+      {selectedScale.map((note, key) => <NotePlayer key={key} sound={selectedSound} note={note.note} keyToPlay={note.keystroke} />)}
   </div>
   )
 }
