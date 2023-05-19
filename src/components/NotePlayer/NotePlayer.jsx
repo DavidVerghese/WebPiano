@@ -29,7 +29,6 @@ function NotePlayer({ note, keyToPlay }) {
     };
   }, [note, keyToPlay]);
 
-  return <div>Press and hold '{keyToPlay}' to play {note}</div>;
 }
 
 export default NotePlayer;
