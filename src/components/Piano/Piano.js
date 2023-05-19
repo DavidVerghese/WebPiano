@@ -26,7 +26,7 @@ function Piano({width,height,hideTitle}) {
       scale.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
     }
     
-    const handleSoundChange = (event) => {
+  const handleSoundChange = (event) => {
       setSelectedSound(event.target.value)
       let sound = event.target.value
       if (sound === "default") {
@@ -135,7 +135,7 @@ function Piano({width,height,hideTitle}) {
     <div className="piano" style={{width: width && width >= 400 ? `${width}px` : defaultWidth,height: height && height >= 40 ? `${height}px` : defaultHeight }}>
       {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} keystroke={note.keystroke} note={note.note} color={note.color} />)}
       </div>
-      {selectedScale.map((note)=><NotePlayer note={note.note} keyToPlay={note.keystroke} />)}
+      {selectedScale.map((note, key) => <NotePlayer key={key} sound={selectedSound} note={note.note} keyToPlay={note.keystroke} />)}
   </div>
   )
 }
