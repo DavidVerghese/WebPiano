@@ -7,7 +7,8 @@ import Interface
 function App() {
   return (
     <div>
-      <Interface hideTitle={true} width={400} height={40} />
+      <h2>Piano</h2>
+      <Interface width={400} height={40} />
     </div>
   );
 }
