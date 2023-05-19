@@ -6,6 +6,7 @@ import Interface
 function App() {
   return (
     <div>
+      <h2>Piano</h2>
       <Interface width={400} height={40} />
     </div>
   );
