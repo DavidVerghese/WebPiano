@@ -1,11 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import * as Tone from 'tone';
 
 function NotePlayer({ note, sound, keyToPlay }) {
-  const synthRef = useRef(null);
   let isPlaying = false;
   useEffect(() => {
-    //const synth = new Tone.Synth().toDestination();
     let synth;
     if (sound === "default") {
       synth = new Tone.Synth().toDestination();
