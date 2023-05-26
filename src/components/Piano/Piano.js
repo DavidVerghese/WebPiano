@@ -45,9 +45,6 @@ function Piano({width,height}) {
       else if (sound === "membrane") {
         player.current = new Tone.MembraneSynth().toDestination();
       }
-      else if (sound === "metal") {
-        player.current = new Tone.MetalSynth().toDestination();
-      }
       else {
         player.current = new Tone.MonoSynth().toDestination();
       }

@@ -1,7 +1,7 @@
 import './SelectedSoundDropdown.css';
 
 function SelectedSoundDropdown({ handleSoundChange, selectedSound }) {
-  const sounds = ['default', 'am', 'duo', 'fm', 'membrane', 'metal', 'mono'];
+  const sounds = ['default', 'am', 'duo', 'fm', 'membrane', 'mono'];
   return (<>
     <label htmlFor="scale"> Sound: <span className="material-symbols-outlined">piano</span> </label>
     <select id="scale" value={selectedSound} onChange={handleSoundChange}>

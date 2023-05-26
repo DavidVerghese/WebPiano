@@ -23,10 +23,6 @@ const useTonePlayer = (note, sound) => {
       const newPlayer = new Tone.MembraneSynth().toDestination();
       newPlayer.triggerAttackRelease(note, "8n");
     }
-    else if (sound === "metal") {
-      const newPlayer = new Tone.MetalSynth().toDestination();
-      newPlayer.triggerAttackRelease(note, "8n");
-    }
     else {
       const newPlayer = new Tone.MonoSynth().toDestination();
       newPlayer.triggerAttackRelease(note, "8n");

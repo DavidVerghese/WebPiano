@@ -20,9 +20,6 @@ function NotePlayer({ note, sound, keyToPlay }) {
     else if (sound === "membrane") {
       synth = new Tone.MembraneSynth().toDestination();
     }
-    else if (sound === "metal") {
-      synth = new Tone.MetalSynth().toDestination();
-    }
     else {
       synth = new Tone.MonoSynth().toDestination();
     }
