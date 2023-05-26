@@ -18,13 +18,13 @@ function Piano({width,height}) {
   let player = useRef(null);
   useEffect(() => {
     player.current = new Tone.Synth().toDestination();
-    chromatic.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
+    chromatic.map((note) => setSelectedNotes(current => [...current, note.keystrokes]))
   }, [])
   
   
     function handleSelectedNoteChange(scale) {
       setSelectedNotes([])
-      scale.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
+      scale.map((note) => setSelectedNotes(current => [...current, note.keystrokes]))
     }
     
   const handleSoundChange = (event) => {
@@ -112,7 +112,7 @@ function Piano({width,height}) {
 
   // function handleSelectedNoteChange(scale) {
   //   setSelectedNotes([])
-  //   scale.map((note) => setSelectedNotes(current => [...current, note.keystroke]))
+  //   scale.map((note) => setSelectedNotes(current => [...current, note.keystrokes]))
   // }
   
  
@@ -133,9 +133,9 @@ function Piano({width,height}) {
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
     <div className="piano" style={{width: width && width >= 400 ? `${width}px` : defaultWidth,height: height && height >= 40 ? `${height}px` : defaultHeight }}>
-      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} keystroke={note.keystroke} note={note.note} color={note.color} />)}
+      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} keystrokes={note.keystrokes} note={note.note} color={note.color} />)}
       </div>
-      {selectedScale.map((note, key) => <NotePlayer key={key} sound={selectedSound} note={note.note} keyToPlay={note.keystroke} />)}
+      {selectedScale.map((note, key) => <NotePlayer key={key} sound={selectedSound} note={note.note} keyToPlay={note.keystrokes} />)}
   </div>
   )
 }

@@ -35,11 +35,11 @@ const useTonePlayer = (note, sound) => {
   return { playSound };
 };
 
-function Key({note, color, sound, keystroke}) {
+function Key({note, color, sound, keystrokes}) {
   const { playSound } = useTonePlayer(note, sound);
   return (
     <div className="key">
-      <button className={color} onClick={playSound}><div className="key-info"><strong>{note}</strong><em>{keystroke}</em></div></button>
+      <button className={color} onClick={playSound}><div className="key-info"><strong>{note}</strong><em>{keystrokes[0]}</em></div></button>
     </div>
   );
 };

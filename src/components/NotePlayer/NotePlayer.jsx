@@ -28,14 +28,14 @@ function NotePlayer({ note, sound, keyToPlay }) {
     }
     
     const handleKeyDown = (event) => {
-      if (event.key === keyToPlay && !isPlaying) {
+      if (keyToPlay.includes(event.key) && !isPlaying) {
         synth.triggerAttack(note);
         isPlaying = true;
       }
     };
 
     const handleKeyUp = (event) => {
-      if (event.key === keyToPlay) {
+      if (keyToPlay.includes(event.key)) {
         synth.triggerRelease();
         isPlaying = false;
       }
