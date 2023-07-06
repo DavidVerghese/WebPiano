@@ -27,7 +27,7 @@ function NotePlayer({ note, sound, keyToPlay }) {
     const handleKeyDown = (event) => {
       event.preventDefault();
       if (keyToPlay.includes(event.key) && !isPlaying) {
-        synth.triggerAttack(note);
+        synth.triggerAttackRelease(note, '1n');
         isPlaying = true;
       }
     };

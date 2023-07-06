@@ -20,6 +20,11 @@ function Piano({width,height}) {
     player.current = new Tone.Synth().toDestination();
     chromatic.map((note) => setSelectedNotes(current => [...current, note.keystrokes]))
   }, [])
+
+  useEffect(() => {
+    // localStorage.setItem('selectedSound', selectedSound);
+    setSelectedSound(localStorage.getItem('selectedSound'))
+  }, [selectedSound]);
   
   
     function handleSelectedNoteChange(scale) {
@@ -28,7 +33,10 @@ function Piano({width,height}) {
     }
     
   const handleSoundChange = (event) => {
-      setSelectedSound(event.target.value)
+    setSelectedSound(event.target.value);
+    localStorage.setItem('selectedSound', event.target.value);
+       window.location.reload(false);
+    
       let sound = event.target.value
       if (sound === "default") {
         player.current = new Tone.Synth().toDestination();
@@ -130,7 +138,7 @@ function Piano({width,height}) {
     <SelectedScaleDropdown handleScaleChange={handleScaleChange} selectedScaleName={selectedScaleName} />
     <SelectedSoundDropdown handleSoundChange={handleSoundChange} selectedSound={selectedSound}/>
     <div className="piano" style={{width: width && width >= 400 ? `${width}px` : defaultWidth,height: height && height >= 40 ? `${height}px` : defaultHeight }}>
-      {selectedScale.map((note, key) => <Key sound={selectedSound} key={key} keystrokes={note.keystrokes} note={note.note} color={note.color} />)}
+      {selectedScale.map((note, key) => <Key sound={localStorage.getItem('selectedSound')} key={key} keystrokes={note.keystrokes} note={note.note} color={note.color} />)}
       </div>
       {selectedScale.map((note, key) => <NotePlayer key={key} sound={selectedSound} note={note.note} keyToPlay={note.keystrokes} />)}
   </div>
