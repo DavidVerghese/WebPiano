@@ -5,3 +5,8 @@
   text-align: start;
   /* border: 1px solid red; */
 }
+@media (max-width: 480px) {
+  .piano-parent {
+      display: none;
+  }
+}
