@@ -26,7 +26,6 @@ function Piano({width,height}) {
   }, [selectedSound]);
 
   useEffect(() => {
-    // let selectedScaleNameLocalStorage = localStorage.getItem('selectedScaleName');
     setSelectedScaleName(localStorage.getItem('selectedScaleName'));
 
     if (selectedScaleName === "Chromatic") {
@@ -96,25 +95,6 @@ function Piano({width,height}) {
     localStorage.setItem('selectedSound', event.target.value);
     window.location.reload(false);
     
-      // let sound = event.target.value
-      // if (sound === "default") {
-      //   player.current = new Tone.Synth().toDestination();
-      // }
-      // else if (sound === "am") {
-      //   player.current = new Tone.AMSynth().toDestination();
-      // }
-      // else if (sound === "duo") {
-      //   player.current = new Tone.DuoSynth().toDestination();
-      // }
-      // else if (sound === "fm") {
-      //   player.current = new Tone.FMSynth().toDestination();
-      // }
-      // else if (sound === "membrane") {
-      //   player.current = new Tone.MembraneSynth().toDestination();
-      // }
-      // else {
-      //   player.current = new Tone.MonoSynth().toDestination();
-      // }
     }
   
 
@@ -123,65 +103,8 @@ function Piano({width,height}) {
     setSelectedScaleName(event.target.value);
     localStorage.setItem('selectedScaleName', event.target.value);
 
-    // if (event.target.value === "Chromatic") {
-    //   setSelectedScale(chromatic);
-    //   handleSelectedNoteChange(chromatic);
-    // }
-    // else if (event.target.value === "Major") {
-    //   setSelectedScale(major);
-    //   handleSelectedNoteChange(major);
-    // }
-    // else if (event.target.value === "Japanese") {
-    //   setSelectedScale(japanese);
-    //   handleSelectedNoteChange(japanese);
-    // }
-    // else if (event.target.value === "Major Pentatonic") {
-    //   setSelectedScale(majorPentatonic);
-    //   handleSelectedNoteChange(majorPentatonic);
-    // }
-    // else if (event.target.value === "South East Asian") {
-    //   setSelectedScale(southEastAsian);
-    //   handleSelectedNoteChange(southEastAsian);
-    // }
-    // else if (event.target.value === "Klezmer") {
-    //   setSelectedScale(klezmer);
-    //   handleSelectedNoteChange(klezmer);
-    // }
-    // else if (event.target.value === "Major Blues") {
-    //   setSelectedScale(majorBlues);
-    //   handleSelectedNoteChange(majorBlues);
-    // }
-    // else if (event.target.value === "Harmonic Minor") {
-    //   setSelectedScale(harmonicMinor);
-    //   handleSelectedNoteChange(harmonicMinor);
-    // }
-    // else if (event.target.value === "Dorian") {
-    //   setSelectedScale(dorian);
-    //   handleSelectedNoteChange(dorian);
-    // }
-    // else if (event.target.value === "Mixolodian") {
-    //   setSelectedScale(mixolodian);
-    //   handleSelectedNoteChange(mixolodian);
-    // }
-    // else if (event.target.value === "Minor") {
-    //   setSelectedScale(minor);
-    //   handleSelectedNoteChange(minor);
-    // }
-    // else if (event.target.value === "Minor Pentatonic") {
-    //   setSelectedScale(minorPentatonic);
-    //   handleSelectedNoteChange(minorPentatonic);
-    // }
-    // else {
-    //   setSelectedScale(minorBlues);
-    //   handleSelectedNoteChange(minorBlues);
-    // }
-
   };
 
-  // function handleSelectedNoteChange(scale) {
-  //   setSelectedNotes([])
-  //   scale.map((note) => setSelectedNotes(current => [...current, note.keystrokes]))
-  // }
   
  
 
