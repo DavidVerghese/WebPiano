@@ -22,10 +22,16 @@ function Piano({width,height}) {
   }, [])
 
   useEffect(() => {
+    if (!localStorage.getItem('selectedSound')) {
+      localStorage.setItem('selectedSound','default');
+    }
     setSelectedSound(localStorage.getItem('selectedSound'))
   }, [selectedSound]);
 
   useEffect(() => {
+    if (!localStorage.getItem('selectedScaleName')) {
+      localStorage.setItem('selectedScaleName','Chromatic');
+    }
     setSelectedScaleName(localStorage.getItem('selectedScaleName'));
 
     if (selectedScaleName === "Chromatic") {
