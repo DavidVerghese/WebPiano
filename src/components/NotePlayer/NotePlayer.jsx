@@ -5,24 +5,27 @@ function NotePlayer({ note, sound, keyToPlay }) {
   let isPlaying = false;
   useEffect(() => {
     let synth;
-    if (sound === "default") {
-      synth = new Tone.Synth().toDestination();
-    }
-    else if (sound === "am") {
-      synth = new Tone.AMSynth().toDestination();
-    }
-    else if (sound === "duo") {
-      synth = new Tone.DuoSynth().toDestination();
-    }
-    else if (sound === "fm") {
-      synth = new Tone.FMSynth().toDestination();
-    }
-    else if (sound === "membrane") {
-      synth = new Tone.MembraneSynth().toDestination();
-    }
-    else {
-      synth = new Tone.MonoSynth().toDestination();
-    }
+
+    switch (sound) {
+      case "default":
+        synth = new Tone.Synth().toDestination();
+        break;
+      case "am":
+        synth = new Tone.AMSynth().toDestination();
+        break;
+      case "duo":
+        synth = new Tone.DuoSynth().toDestination();
+        break;
+      case "fm":
+        synth = new Tone.FMSynth().toDestination();
+        break;
+      case "membrane":
+        synth = new Tone.MembraneSynth().toDestination();
+        break;
+      default:
+        synth = new Tone.MonoSynth().toDestination();
+        break;
+    };
     
     const handleKeyDown = (event) => {
       event.preventDefault();
