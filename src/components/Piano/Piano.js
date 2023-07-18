@@ -29,58 +29,60 @@ function Piano({width,height}) {
   useEffect(() => {
     setSelectedScaleName(localStorage.getItem('selectedScaleName'));
 
-    if (selectedScaleName === "Chromatic") {
-      setSelectedScale(chromatic);
-      handleSelectedNoteChange(chromatic);
-    }
-    else if (selectedScaleName === "Major") {
-      setSelectedScale(major);
-      handleSelectedNoteChange(major);
-    }
-    else if (selectedScaleName === "Japanese") {
-      setSelectedScale(japanese);
-      handleSelectedNoteChange(japanese);
-    }
-    else if (selectedScaleName === "Major Pentatonic") {
-      setSelectedScale(majorPentatonic);
-      handleSelectedNoteChange(majorPentatonic);
-    }
-    else if (selectedScaleName === "South East Asian") {
-      setSelectedScale(southEastAsian);
-      handleSelectedNoteChange(southEastAsian);
-    }
-    else if (selectedScaleName === "Klezmer") {
-      setSelectedScale(klezmer);
-      handleSelectedNoteChange(klezmer);
-    }
-    else if (selectedScaleName === "Major Blues") {
-      setSelectedScale(majorBlues);
-      handleSelectedNoteChange(majorBlues);
-    }
-    else if (selectedScaleName === "Harmonic Minor") {
-      setSelectedScale(harmonicMinor);
-      handleSelectedNoteChange(harmonicMinor);
-    }
-    else if (selectedScaleName === "Dorian") {
-      setSelectedScale(dorian);
-      handleSelectedNoteChange(dorian);
-    }
-    else if (selectedScaleName === "Mixolodian") {
-      setSelectedScale(mixolodian);
-      handleSelectedNoteChange(mixolodian);
-    }
-    else if (selectedScaleName === "Minor") {
-      setSelectedScale(minor);
-      handleSelectedNoteChange(minor);
-    }
-    else if (selectedScaleName === "Minor Pentatonic") {
-      setSelectedScale(minorPentatonic);
-      handleSelectedNoteChange(minorPentatonic);
-    }
-    else {
-      setSelectedScale(minorBlues);
-      handleSelectedNoteChange(minorBlues);
-    }
+    switch (selectedScaleName) {
+      case "Chromatic":
+        setSelectedScale(chromatic);
+        handleSelectedNoteChange(chromatic);
+        break;
+      case "Major":
+        setSelectedScale(major);
+        handleSelectedNoteChange(major);
+        break;
+      case "Japanese":
+        setSelectedScale(japanese);
+        handleSelectedNoteChange(japanese);
+        break;
+      case "Major Pentatonic":
+        setSelectedScale(majorPentatonic);
+        handleSelectedNoteChange(majorPentatonic);
+        break;
+      case "South East Asian":
+        setSelectedScale(southEastAsian);
+        handleSelectedNoteChange(southEastAsian);
+        break;
+      case "Klezmer":
+        setSelectedScale(klezmer);
+        handleSelectedNoteChange(klezmer);
+        break;
+      case "Major Blues":
+        setSelectedScale(majorBlues);
+        handleSelectedNoteChange(majorBlues);
+        break;
+      case "Harmonic Minor":
+        setSelectedScale(harmonicMinor);
+        handleSelectedNoteChange(harmonicMinor);
+        break;
+      case "Dorian":
+        setSelectedScale(dorian);
+        handleSelectedNoteChange(dorian);
+        break;
+      case "Mixolodian":
+        setSelectedScale(mixolodian);
+        handleSelectedNoteChange(mixolodian);
+        break;
+      case "Minor":
+        setSelectedScale(minor);
+        handleSelectedNoteChange(minor);
+        break;
+      case "Minor Pentatonic":
+        setSelectedScale(minorPentatonic);
+        handleSelectedNoteChange(minorPentatonic);
+        break;
+      default:
+        setSelectedScale(minorBlues);
+        handleSelectedNoteChange(minorBlues);
+        break;
+    };
   }, [selectedScaleName]);
 
   function handleSelectedNoteChange(scale) {
