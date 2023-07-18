@@ -27,9 +27,10 @@ const useTonePlayer = (note, sound) => {
       const newPlayer = new Tone.MonoSynth().toDestination();
       newPlayer.triggerAttackRelease(note, "8n");
     }
+    };
+  
+    return { playSound };
   };
-  return { playSound };
-};
 
 function Key({note, color, sound, keystrokes}) {
   const { playSound } = useTonePlayer(note, sound);
